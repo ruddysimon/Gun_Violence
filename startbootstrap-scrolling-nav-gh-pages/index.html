@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="d3Style.css">
+
+  <title>Gun Violence</title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
+
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+
+
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/scrolling-nav.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Gun Violence Visualization</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#analysis">Analysis</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#map">Map</a>
+            </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#data">Data sources</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <header class="bg-secondary text-white" style ="background-image: url('https://everytownresearch.org/wp-content/uploads/2019/04/City-GV.png');" >
+  <div class="container text-center">
+      <h1>Welcome to the Gun Violence Data Analysis and Visualization</h1>
+      <p class="lead">In this webpage, as a team, we attempted to analyze gun violence data across the United States of America to further help visually demonstrate different categories of gun incidents from 2014 to 2018. Our main objective is to find out various correlations between unemployment, the percentage of individuals living under the povery level, and average income with respect to gun violence.</p>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>Gun Violence In United States</h2>
+          <p class="lead" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Gun-related violence is violence committed with the use of a gun. Gun-related violence may or may not be considered criminal. According to various respected online sources, Gun-based "Criminal Violence" includes homicide, assault with a deadly weapon, and suicide, or attempted suicide. Thus,the prior all depends on the jurisdiction. On the other hand, the "Non-Criminal Violence" includes accidental or unintentional injury and death! (Except perhaps in cases of criminal negligence). From a different note, gun violence statistics are military or para-military activities.</p>
+          <ul>
+            <li>According to, Kaggle and Wikipedia, The United States of America has the 11th highest rate of gun violence in the world. Moreover, USA is the largest of any large or highly developed nation to have the following statistics: "Having a gun homicide rate which is 25 times higher than any other developed nation; furthermore, an unintentional gun death rate which is 6 times higher than any other developed nation; in addition to, a firearm suicide rate which is 8 times higher than any other developed nation. Lastly, an overall firearm death rate which is 10 times higher than the average respective rates of other high income nations.</li><br/>
+            <li>Compared to similarly wealthy nations with strict gun control laws, such as Japan, the United Kingdom, or South Korea, the United States of America has an overall rate of firearms death per capita showing as 50–100 times greater than many of the prior mentioned nations.</li><br/>
+            <h1 itemprop="headline" class="css-1s4ffep e1h9rw200" id="link-1291bb0a"><span class="ghost" aria-hidden="true" style="position: absolute; left: 0px; visibility: hidden;">There are NO correlations found between Video Games and Gun Violence.</span><span class="balancedHeadline" style="display: inline-block; max-width: 593.887px;">Video Games Aren’t Cause Of Shootings.</span>
+              <span class="ghost" aria-hidden="true"  style="position: absolute; left: 0px; visibility: hidden;">There are NO correlations found between Video Games and Gun Violence.</span>
+            </h1>
+            <img src="https://static01.nyt.com/images/2019/08/05/sports/05videogames/05videogames-articleLarge.jpg?quality=90&amp;auto=webp"><br/>
+            <li> After games like Wolfenstein 3D and Doom popularized the genre of violent first-person shooting games; that created the ideology behinde "video games being the root of shootings at Columbine High School in 1999 and at Marjory Stoneman Douglas High School in 2018, and many others in between.</li>
+            <li>More to the subject matter, researchers have extensively studied whether there is a causal link between video games and violent behavior, and thereafter concluded that there is NO linkage between video games and gun violence.</li><br/>
+            <h1 itemprop="headline" class="css-1s4ffep e1h9rw200" id="link-1291bb0a"><span class="ghost" aria-hidden="true" style="position: absolute; left: 0px; visibility: hidden;">Having Direct or Indirect Access To Guns Is considered More of a risk factor for violence than being diagnosed with a mental Illness, Research Shows.</span><span class="balancedHeadline" style="display: inline-block; max-width: 593.887px;">Having Access or Indirect Access To Gun Is More Of A Risk Factor For Violence Than Being Diagnosed With A Mental Illness, Research Shows..</span>
+              <span class="ghost" aria-hidden="true"  style="position: absolute; left: 0px; visibility: hidden;">Having Direct or Indirect Access To Guns Is considered More of a risk factor for violence than being diagnosed with a mental Illness, Research Shows.</span>
+            </h1>
+            <li>Mental illness is often identified as or assumed to be a root cause. Social science research can help educators understand some simple truths and can challenge some common misconceptions.</li>
+            <li>
+              <strong>Mental illness does not cause gun violence:</strong>
+              People with diagnosed with mental illnesses are not more likely to commit mass shootings; less than 5 percent of violence can be attributed to mental illness.</li></br>
+              <h1 itemprop="headline" class="css-1s4ffep e1h9rw200" id="link-1291bb0a"><span class="ghost" aria-hidden="true" style="position: absolute; left: 0px; visibility: hidden;">Economic Affect On Gun Violence.</span><span class="balancedHeadline" style="display: inline-block; max-width: 593.887px;">Economic Affect On Gun Violence.</span>
+                </h1>
+                <li>
+                  We will begin with an exploratory analysis of economic data by making several basic statical graphs and Probability Value, Hypothesis Testing, and Statical Significance to determine the legitimacy of our results.</br>
+                  <li><strong>Unemployment:</strong></li>
+                  In reality, we realized after performing particular correlations, specially between Unemployment and Gun-Violence, we saw the clear significance bewtween those two variables. Furthermore, we obtained the "P-Value", which showed to be (0.009069212870677733). This result shows a clear correlation due to the reason that the "P-Value" is less than (0.05).
+                  </li>
+                  <!-- <img src="https:Users/ruddysimonpour/Desktop/gun-violance/p_value/unemployment.png"><br/> -->
+                  <li><strong>Household Income:</strong></li>
+                  There was no correlation between the "Household Income" and "Gun-Violence". Hence, after performing a "P-Value" calculation, the result was (0.00).
+                  </li>
+                  <li><strong>Poverty Rate:</strong></li>
+                  From a different stand point, we also ran a "P-Value" calculation to see if there are any correlations between "Poverty Rate" and "Gun-Violence". The "P-Value" is (1.9101468541012747e-09) meaning there is a clear correlation. 
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <header class="bg-secondary text-white"
+  <section id="analysis" class="bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 mx-auto">
+          <h2>An indepth Analysis we performed to futher agree on conclusive evidence</h2>
+          <li>We are working on a Data Set that is composed of information containing "Gun-Violence Data" throughout the United States of America. We hope that this will make it easier for us to study gun violence and make informed predictions about future trends that may allow us to overcome and stop violent events from happening in the future.</li><br/>
+
+          <li>In light of all the violent events that took place throughout the world, especially in the United States of America, we decided to evaluate the entire Dataset and try to draw conclusive information in regards to where these incidents occur most, how the area may increase the possibility of such a cruel event to take place, and more importantly, the exact location in the city the event took i.e. schools, shopping malls, public parks, etc.</li><br/>
+          <li> The graph below shows a clear display of an increasing trend. The further we go into the future the more "Gun-Violence incidents" take place.</li>
+          <div id="plot"></div>
+          <script src="year_incident_js/incident_year.js"></script>
+          <script src="year_incident_js/plot-1.js"></script><br/>
+
+
+          <li>The graph below shows the "Gun-Violence incidents" composed of all the analyzed years with a combination of all the months. After we comnbined all the years together we analyzed each month from every year. We came to conclude that the highest "Gun-Violence" incidents take place in the months of "January, March, July, and August". Thus, the highest day of the year would be the Forth of July.</li><br/>
+          <div id="monthPlot"></div>
+          <script src="month_incident_js/incident_month.js"></script>
+          <script src="month_incident_js/plot-2.js"></script><br/>
+
+          <h2>Forecasting Gun Incident</h2>
+          <li>We went above and beyond, and decided to Visualize future data modeling through predicting and forecasting what could happen in the future if we remain on these tracks and let "Gun-Violence" go unaddressed. Moreover, we wanted to share our findings with the public</li>
+          <li>The number of people that will be affected due to a "Gun-Violence" incident in 2020 will approximately be 58,689.4990000002.</li><br/>
+          
+          <!-- <img src="file://Users/ruddysimonpour/Desktop/gun-violance/forecasting_plot.jpg"><br/> -->
+
+
+          <div class="row">
+            <div class="col-xs-12  col-md-12">
+              <h1 class="display-5 text-center" style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif" ><b>CORRELATION BETWEEN THE ELEMENTS OF GUN VIOLENCE</b></h1>
+              <p class="lead text-center" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;;">An interactive scatter plot, to demonstrate the correlation between economic factors and gun violence in United States of America.</p>
+              <hr class="my-4">
+              <div id="scatter">
+                <!-- We append our chart here. -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </header>
+
+
+  <header class="bg-secondary text-white"
+  <section id="map" class="bg-light">
+    <div class="container">
+      
+      <div class="row">
+        <div class="col-lg-9 mx-auto">
+          <!-- The div that holds our map -->
+          <div id="map"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </header>
+
+    <!-- API key -->
+    <script type="text/javascript" src="static/js/config.js"></script>
+    <!-- Our JavaScript -->
+    <script type="text/javascript" src="static/js/logic.js"></script>
+
+
+
+
+  <section id="data">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>Data Sources</h2>
+          <p class="lead"> Wikipedia </p>
+          <p class="lead"> Kaggle</p>
+          <p class="lead"> https://www.gunviolencearchive.org</p>
+          <p class="lead"> atf.org Bureau of Alcohol, Tobacco, firearms and Explosives</p>
+          <p class="lead"> United Census Bureau</p>
+          
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Gun Analysis Visualization 2019</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Leaflet JavaScript -->
+  <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+
+  <!-- D3 JavaScript -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.3/d3.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom JavaScript for this theme -->
+  <script src="js/scrolling-nav.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+
+
+</body>
+
+</html>
